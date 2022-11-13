@@ -26,14 +26,14 @@ class Main extends PluginBase implements Listener {
 		if(!file_exists($this->getDataFolder()."config.yml")) $this->saveResource("config.yml");
 		$this->config = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		Database::init();
+		DatabaseInv::init();
 	}
 
 	public function onDisable(): void
     {
         foreach ($this->getServer()->getOnlinePlayers() as $player) {
-            if(Database::isRegistered($player)){
-                Database::saveInventory($player);
+            if(DatabaseInv::isRegistered($player)){
+                DatabaseInv::saveInventory($player);
             }
         }
     }
@@ -42,10 +42,10 @@ class Main extends PluginBase implements Listener {
 	{
 		$player = $ev->getPlayer();
 
-		if(!Database::isRegistered($player)){
-			Database::register($player);
+		if(!DatabaseInv::isRegistered($player)){
+			DatabaseInv::register($player);
 		} else {
-			Database::restoreInventory($player);
+			DatabaseInv::restoreInventory($player);
 		}
 	}
 
@@ -53,8 +53,8 @@ class Main extends PluginBase implements Listener {
 	{
 		$player = $ev->getPlayer();
 
-		if(Database::isRegistered($player)){
-			Database::saveInventory($player);
+		if(DatabaseInv::isRegistered($player)){
+			DatabaseInv::saveInventory($player);
 		}
 	}
 

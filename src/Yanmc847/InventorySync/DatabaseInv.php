@@ -4,7 +4,7 @@ namespace Yanmc847\InventorySync;
 
 use pocketmine\player\Player;
 
-class Database {
+class DatabaseInv {
 
 	public static function init()
 	{
