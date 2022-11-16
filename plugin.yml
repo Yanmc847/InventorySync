@@ -1,8 +1,12 @@
 ---
 name: InventorySync
 author: Yanmc847
-version: 1.0.2
+version: 1.0.3
 api:
 - 4.0.0
 main: Yanmc847\InventorySync\Main
+
+permissions:
+  resetinventory.command:
+    default: op
 ...

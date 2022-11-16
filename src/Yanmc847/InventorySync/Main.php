@@ -27,6 +27,8 @@ class Main extends PluginBase implements Listener {
 		$this->config = new Config($this->getDataFolder()."config.yml", Config::YAML);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		DatabaseInv::init();
+        
+        $this->getServer()->getCommandMap()->register("" ,new resetinventory());
 	}
 
 	public function onDisable(): void
