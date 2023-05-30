@@ -137,7 +137,7 @@ class DatabaseInv {
 		{
 			return true;
 		}
-		return false;
+
 	}
 
 	public static function getDatabase()
